@@ -22,7 +22,6 @@ e permite interação com esses dados.
        ├── character.css
        ├── syle.css
 ├── main.js  
-├── 📁 imagens  
 ├── charachter.html  
 ├── index.html
 ├── README.md
