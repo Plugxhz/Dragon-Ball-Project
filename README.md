@@ -1,6 +1,6 @@
 # Dragon Ball Project 🚀  
 
-Este é um projeto que consome a API **Dragon Ball API** feito com o objetivo aprofundar os conhecimentos em HTML, CSS e JavaScript
+Este é um projeto que consome a API **Dragon Ball API** feito com o objetivo de aprofundar os conhecimentos em HTML, CSS e JavaScript
 por meio da integração com APIs externas.  
 
 Foi feita a implementação de um projeto dinâmico que exibe os dados retornados
