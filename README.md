@@ -11,7 +11,7 @@ e permite interação com esses dados.
 - HTML  
 - CSS  
 - JavaScript  
-- API Dragon Ball ([https://web.dragonball-api.com))  
+- API Dragon Ball (https://web.dragonball-api.com))  
 
 ## 📂 Estrutura do Projeto  
 
