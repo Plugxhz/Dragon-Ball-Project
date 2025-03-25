@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dragon Ball API</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <h1>Personagens Dragon Ball</h1>
+    <div class="container" id="character-container"></div>
+    <input type="button" id="btnPrev" value="Anterior" />
+    <input type="button" id="btnNext" value="Seguinte" />
+
+    <script>
+      let currentPage = 1;
+      const container = document.getElementById("character-container");
+      const prevButton = document.getElementById("btnPrev");
+      const nextButton = document.getElementById("btnNext");
+
+      async function getCharacters(page) {
+        try {
+          container.innerHTML = "Carregando....";
+          const response = await fetch(
+            `https://dragonball-api.com/api/characters/?page=${page}`
+          );
+          if (!response.ok) {
+            throw new Error(
+              `Erro ao carregar os personagens: ${response.status}`
+            );
+          }
+          const data = await response.json();
+          console.log(data);
+
+          container.innerHTML = "";
+
+          if (data.items) {
+            data.items.forEach((character) => {
+              const card = document.createElement("div");
+              card.className = "card";
+              card.innerHTML = `
+                <img src="${character.image}" alt="${character.name}">
+                <h3>${character.name}</h3>
+                <p><strong>Gênero:</strong> ${character.gender}</p>
+                <p><strong>Raça:</strong> ${character.race}</p>
+              `;
+
+              card.addEventListener("click", () => {
+                window.location.href = `charachter.html?id=${character.id}`;
+              });
+
+              container.appendChild(card);
+            });
+          }
+
+          prevButton.disabled = !data.links.previous;
+          nextButton.disabled = !data.links.next;
+        } catch (error) {
+          console.log("Erro ao carregar os personagens", error);
+          container.innerHTML = "Erro ao carregar personagens";
+        }
+      }
+
+      prevButton.addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage -= 1;
+          getCharacters(currentPage);
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        currentPage++;
+        getCharacters(currentPage);
+      });
+
+      document.addEventListener("DOMContentLoaded", () =>
+        getCharacters(currentPage)
+      );
+    </script>
+  </body>
+</html>
