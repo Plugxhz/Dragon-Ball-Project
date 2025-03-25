@@ -17,14 +17,14 @@ e permite interação com esses dados.
 
 ```
 📁 dragon-ball-project  
-├── 📁 assets 
-│   ├── css
-       ├── character.css
-       ├── syle.css
-├── main.js  
+├── 📁 assets  
+│   ├── 📁 css  
+│   │   ├── character.css  
+│   │   ├── style.css  
+│   ├── main.js  
 ├── charachter.html  
-├── index.html
-├── README.md
+├── index.html  
+├── README.md  
 ```
 
 ## ▶️ Como rodar o projeto?  
